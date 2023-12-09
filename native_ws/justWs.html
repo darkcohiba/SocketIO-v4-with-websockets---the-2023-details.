@@ -1,6 +1,13 @@
 <script>
 
     let ws = new WebSocket('ws://localhost:8000')
-    console.log(ws)
-
+    // this will wait for connection
+    ws.onopen = (event)=>{
+        console.log(event)
+        ws.send("From the front end!")
+    }
+    // this will have our message in it, this will sit and wait for our message
+    ws.onmessage = (message) =>{
+        console.log(message.data)
+    }
 </script>
