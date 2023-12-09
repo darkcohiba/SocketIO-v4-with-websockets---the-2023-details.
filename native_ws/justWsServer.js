@@ -12,7 +12,10 @@ const server = http.createServer((req, res) =>{
 const wss = new websocket.WebSocketServer({server})
 
 wss.on('headers', (headers, req) => {
+
+    console.log(headers)
     
+
 })
 
 server.listen(8000)
