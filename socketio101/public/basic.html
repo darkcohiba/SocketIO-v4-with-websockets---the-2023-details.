@@ -12,5 +12,11 @@
     socket.on('messageFromServer', (data)=>{
         console.log(data)
     })
+
     socket.emit('messageFromClient', {data: "Hello from the browser"})
+
+    socket.io.on('reconnect',(data)=>{
+        console.log('reconnected')
+        console.log(data)
+    })
 </script>
