@@ -6,6 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Testing Browser</h1>
+    <h1>Testing our Chat HTML Browser</h1>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+        const socket = io('http://localhost:8000');
+    
+        socket.on('connect', ()=>{
+            console.log(socket.id)
+        })
+    
+        socket.on('messageFromServer', (dataFromServer)=>{
+            console.log(dataFromServer)
+        })
+
+    </script>
 </body>
 </html>
