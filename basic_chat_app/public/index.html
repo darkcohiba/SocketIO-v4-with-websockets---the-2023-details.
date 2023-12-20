@@ -54,6 +54,12 @@
             console.log(dataFromServer)
         })
 
+        document.querySelector('#message-form').addEventListener('submit',(e)=>{
+            e.preventDefault();
+            const newMessage = e.target['user-message'].value
+            socket.emit('newMessageToServer', {text: newMessage})
+        })
+
     </script>
     
 </body>
