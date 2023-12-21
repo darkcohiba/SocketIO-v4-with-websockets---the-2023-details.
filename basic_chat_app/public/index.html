@@ -52,6 +52,14 @@
 
         const socket = io('http://localhost:8000');
 
+        // my way to make the messages
+        // const createMessage = (dataFromClient) => {
+        //         // create new message li
+        //         const newMessage = document.createElement('li')
+        //         newMessage.textContent = dataFromClient
+        //         // append it to messages id ul
+        //         document.querySelector('#messages').append(newMessage)
+        // }
         socket.on('connect', () => {
             console.log(socket.id)
         })
@@ -71,12 +79,10 @@
         // })
         socket.on('newMessageToClients', (dataFromClient) => {
             console.log(dataFromClient)
-            const createMessage = (dataFromClient) => {
-                // create new message li
-                // append it to messages id ul
-                document.querySelector('#messages')
-                
-            }
+            // my way
+            // createMessage(dataFromClient.text)
+            // udemy
+            document.querySelector('#messages').innerHTML += `<li>${dataFromClient.text}</li>`
         })
 
     </script>
