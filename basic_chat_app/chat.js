@@ -12,6 +12,7 @@ io.on('connection', (socket) => {
     // socket.emit('messageFromServer', {data: "welcome to the socket server!"})
     socket.on('newMessageToServer', (dataFromClient) => {
         console.log("data: ", dataFromClient)
+        // using io will send to all sockets instead of specific socket
         io.emit('newMessageToClients', { text: dataFromClient.text })
     })
 })
